@@ -1,6 +1,5 @@
 package ru.liga.intensitypatterns.model.role.impl;
 
-
 import lombok.RequiredArgsConstructor;
 import ru.liga.intensitypatterns.model.Application;
 import ru.liga.intensitypatterns.model.ApplicationStatus;
