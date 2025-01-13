@@ -16,7 +16,6 @@ public record Client(String fio,
      * @return предзаполненная заявка/анкета
      */
     public Application createApplication(BigDecimal creditAmount, int creditTerm) {
-
         Application application = new Application(
                 "Кредитная заявка для клиента " + fio,
                 this,
