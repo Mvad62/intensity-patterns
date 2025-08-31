@@ -1,12 +1,23 @@
 package ru.liga.intensitypatterns.model.role;
 
 import ru.liga.intensitypatterns.model.Application;
+import ru.liga.intensitypatterns.model.ApplicationStatus;
 
-public interface Approver {
+public abstract class Approver {
 
-    void review(Application application);
+    public void review(Application application) {
+        application.setStatus(ApplicationStatus.PROCESSING);
+    }
 
-    void approve(Application application);
+    public void approve(Application application) {
+        application.setStatus(ru.liga.intensitypatterns.model.ApplicationStatus.APPROVED);
+    }
 
-    void sign(Application application);
+    public abstract void sign(Application application);
+
+    public void processApplication(Application application) {
+        review(application);
+        approve(application);
+        sign(application);
+    }
 }
