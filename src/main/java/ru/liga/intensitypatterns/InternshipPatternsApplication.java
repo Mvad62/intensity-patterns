@@ -8,7 +8,7 @@ import ru.liga.intensitypatterns.model.ScoringResult;
 import ru.liga.intensitypatterns.model.ScoringResultType;
 import ru.liga.intensitypatterns.service.ApplicationService;
 import ru.liga.intensitypatterns.service.ScoringService;
-import ru.liga.intensitypatterns.service.ScoringServiceImpl;
+import ru.liga.intensitypatterns.service.ScoringServiceCachedProxyImpl;
 
 import java.io.PrintStream;
 import java.math.BigDecimal;
@@ -29,7 +29,7 @@ public class InternshipPatternsApplication {
         );
         applicationService.sendOnApprove(application);
 
-        ScoringService scoringService = new ScoringServiceImpl();
+        ScoringService scoringService = new ScoringServiceCachedProxyImpl();
         ScoringResult result = scoringService.getScoringResult(application);
         ScoringResult result2 = scoringService.getScoringResult(application);
         ScoringResult result3 = scoringService.getScoringResult(application);

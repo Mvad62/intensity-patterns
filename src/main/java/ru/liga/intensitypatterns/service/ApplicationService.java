@@ -17,9 +17,7 @@ public class ApplicationService {
      */
     public void sendOnApprove(Application application) {
         Approver approver = approverFactory.getApprover(application.getCreditAmount());
-        approver.review(application);
-        approver.approve(application);
-        approver.sign(application);
+        approver.processApplication(application);
 
         System.out.println("Заявка на кредит была обработана, одобрена и подписана. ");
         System.out.println("Должность/подпись");

@@ -16,18 +16,9 @@ public record Client(String fio,
      * @return предзаполненная заявка/анкета
      */
     public Application createApplication(BigDecimal creditAmount, int creditTerm) {
-        Application application = new Application(
-                "Кредитная заявка для клиента " + fio,
-                this,
-                creditAmount,
-                creditTerm,
-                null,
-                ApplicationStatus.NEW,
-                null,
-                null,
-                null,
-                null);
-
+        Application application = Application.builder("Кредитная заявка для клиента " + fio, this, creditAmount, creditTerm)
+                .status(ApplicationStatus.NEW)
+                .build();
 
         System.out.println("Клиент завел заявку на кредит: " + application);
         System.out.println("________________________________________________________");
